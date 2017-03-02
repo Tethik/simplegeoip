@@ -1,7 +1,11 @@
 appdirs==1.4.2
-ipaddress==1.0.18
+codecov==2.0.5
+coverage==4.3.4
 maxminddb==1.2.3
 packaging==16.8
+py==1.4.32
 pyparsing==2.1.10
+pytest==3.0.6
+pytest-cov==2.4.0
 requests==2.13.0
 six==1.10.0

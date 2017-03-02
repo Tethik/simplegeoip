@@ -5,6 +5,10 @@ import os
 def test_lookup():
     d = simplegeoip.lookup("8.8.8.8")
     assert d["country"]["iso_code"] == "US"
+
+def test_lookup_no_ip():
+    with pytest.raises(Exception):
+        d = simplegeoip.lookup("notanip")
     
 def test_download():
     p = simplegeoip.database_path()

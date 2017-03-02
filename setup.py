@@ -3,8 +3,10 @@ from distutils.command.install_data import install_data
 from setuptools import setup, find_packages
 
 VERSION = "0.1"
-LICENSE = open("LICENSE").read()
-README = open("README.md").read()
+with open("LICENSE") as f:
+    LICENSE = f.read()
+with open("README.md") as f:
+    README = f.read()
 
 setup(
         name='simplegeoip',
@@ -24,6 +26,10 @@ setup(
             'maxminddb',
             'requests',
             'appdirs'
+        ],
+        tests_require=[
+            'pytest',
+            'pytest-cov',
         ],
         license=LICENSE,
         classifiers=[

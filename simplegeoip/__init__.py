@@ -59,7 +59,7 @@ def download_latest_database_from_maxmind():
 
 logging.basicConfig(level=logging.INFO)
 
-def main():
+if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("""USAGE: {binary} [update] <ip, ip2, ...>
 
@@ -93,8 +93,4 @@ def main():
                 print("{ip}: {country}".format(ip=ip, country=country))
         else:
             print("{ip}: Nothing found.".format(ip=ip))
-    
-if __name__ == "__main__":
-    main()
-
     
