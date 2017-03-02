@@ -7,7 +7,7 @@ import sys
 import logging
 import tempfile
 import time
-from appdirs import site_data_dir
+from appdirs import site_data_dir, user_data_dir
 
 __title__ = "simplegeoip"
 __author__ = "Tethik"
@@ -17,8 +17,16 @@ MAXMIND_GEOLITE_URL = 'https://geolite.maxmind.com/download/geoip/database/GeoLi
 
 def database_path():
     d = site_data_dir(__title__, __author__)
-    if not os.path.exists(d):
-        os.makedirs(d)
+    try:
+        if not os.path.exists(d):
+            os.makedirs(d)
+    except:
+        try:
+            d = user_data_dir(__title__, __author__) 
+            if not os.path.exists(d):
+                os.makedirs(d)
+        except:
+            raise EnvironmentError("Could not find a suitable data directory.")
     return os.path.join(d, DATABASE)
 
 _reader = None
