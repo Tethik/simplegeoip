@@ -1,15 +1,25 @@
 # simple-geoip
-Dead simple geoip package. Basically a wrapper around maxminddb that downloads the database for you.
+Dead simple geoip package. Pretty much just a wrapper around [maxminddb](https://github.com/maxmind/MaxMind-DB-Reader-python/) 
+that automatically downloads the database for you. 
+
+Can be used as a package or standalone script.
 
 # Usage
 As a python package.
 ```python
 import simplegeoip
 
+# Gets a dict with country/city information 
 simplegeoip.lookup('127.0.0.1')
+# Downloads an updated database into simplegeoip's package directory
+simplegeoip.download_latest_database_from_maxmind()
+# Tells you when the database was last updated by maxmind
+simplegeoip.last_updated()
 ```
 
-As a standalone script
+The same python As a standalone script
 ```bash
-python simplegeoip.py 8.8.8.8
+simplegeoip 8.8.8.8
+simplegeoip update
+simplegeoip info 
 ```

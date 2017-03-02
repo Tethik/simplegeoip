@@ -22,9 +22,11 @@ setup(
         # package_dir={'maxminddb': 'maxminddb'},
         include_package_data=True,
         zip_safe=False,
-        # install_requires=requirements,
+        install_requires=[
+            'maxminddb',
+            'requests'
+        ],
         license=LICENSE,
-        cmdclass=cmdclass,
         classifiers=[
             'Development Status :: 5 - Production/Stable',
             'Environment :: Web Environment',
