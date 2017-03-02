@@ -7,6 +7,11 @@ or let the script do it automatically when it detects no database is installed.
 
 Can be used as a package or standalone script.
 
+# Install
+```bash
+pip install simplegeoip
+```
+
 # Usage
 As a python package.
 ```python
