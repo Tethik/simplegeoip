@@ -1,5 +1,6 @@
 import maxminddb
 import requests
+from appdirs import site_data_dir, user_data_dir
 import os
 import gzip
 import shutil
@@ -7,7 +8,7 @@ import sys
 import logging
 import tempfile
 import time
-from appdirs import site_data_dir, user_data_dir
+
 
 __title__ = "simplegeoip"
 __author__ = "Tethik"
@@ -65,40 +66,5 @@ def download_latest_database_from_maxmind():
 
         logging.info("Geolite Database successfully decrompessed and saved to {}. Ready for use.".format(database_path()))
 
-logging.basicConfig(level=logging.INFO)
 
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("""USAGE: {binary} [update] <ip, ip2, ...>
 
-        {binary} update
-            Downloads a new version of the maxmind geolite database.
-
-        {binary} <ip, ip2, ....>
-            Performs lookups for each argument given and prints the results.
-
-        {binary} info
-        """)
-        exit(0)
-    
-    if sys.argv[1].strip() == "update":
-        download_latest_database_from_maxmind()
-        exit(0)
-
-    if sys.argv[1].strip() == "info":
-        print(last_updated())
-        exit(0)
-
-    for arg in sys.argv[1:]:
-        ip = arg.strip()
-        result = lookup(ip)
-        if 'country' in result:
-            country = result['country']['names']['en']            
-            if 'city' in result:
-                city = result['city']['names']['en']
-                print("{ip}: {country}, {city}".format(ip=ip, country=country, city=city))
-            else:
-                print("{ip}: {country}".format(ip=ip, country=country))
-        else:
-            print("{ip}: Nothing found.".format(ip=ip))
-    
