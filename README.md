@@ -1,6 +1,6 @@
 # simple-geoip
 Dead simple geoip package. Pretty much just a wrapper around [maxminddb](https://github.com/maxmind/MaxMind-DB-Reader-python/) 
-that automatically downloads the database for you. 
+that automatically downloads the geolite database for you. 
 
 Can be used as a package or standalone script.
 
@@ -17,7 +17,7 @@ simplegeoip.download_latest_database_from_maxmind()
 simplegeoip.last_updated()
 ```
 
-The same python As a standalone script
+The same as above but as a standalone script
 ```bash
 simplegeoip 8.8.8.8
 simplegeoip update

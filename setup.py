@@ -19,20 +19,19 @@ setup(
             'console_scripts': ['simplegeoip=simplegeoip:main'],
         },
         package_data={'': ['LICENSE', 'README.md']},
-        # package_dir={'maxminddb': 'maxminddb'},
-        include_package_data=True,
-        zip_safe=False,
+        include_package_data=True,        
         install_requires=[
             'maxminddb',
-            'requests'
+            'requests',
+            'appdirs'
         ],
         license=LICENSE,
         classifiers=[
             'Development Status :: 5 - Production/Stable',
-            'Environment :: Web Environment',
+            'Environment :: Console',
             'Intended Audience :: Developers',
             'Intended Audience :: System Administrators',
-            'License :: OSI Approved :: Apache Software License',
+            'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
             'Programming Language :: Python :: 2.6',
             'Programming Language :: Python :: 2.7',
             'Programming Language :: Python :: 3',

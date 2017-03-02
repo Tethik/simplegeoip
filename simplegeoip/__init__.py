@@ -7,21 +7,26 @@ import sys
 import logging
 import tempfile
 import time
+from appdirs import site_data_dir
 
-DATABASE = 'db/GeoLite2-City.mmdb'
+__title__ = "simplegeoip"
+__author__ = "Tethik"
+
+DATABASE = 'GeoLite2-City.mmdb'
 MAXMIND_GEOLITE_URL = 'https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz'
 
-def package_path():
-    return os.path.dirname(os.path.abspath(__file__))
-
 def database_path():
-    return os.path.join(package_path(), DATABASE)
+    d = site_data_dir(__title__, __author__)
+    if not os.path.exists(d):
+        os.makedirs(d)
+    return os.path.join(d, DATABASE)
 
 _reader = None
 def reader():
     global _reader
-    if _reader is None:
+    if _reader is None:        
         if not os.path.exists(database_path()):
+            logging.info("The Geolite database is not installed. Proceeding to download it.")
             download_latest_database_from_maxmind()
         _reader = maxminddb.open_database(database_path())
     return _reader
@@ -50,7 +55,7 @@ def download_latest_database_from_maxmind():
             with open(database_path(), 'wb') as f_out:            
                 shutil.copyfileobj(f_in, f_out)
 
-        logging.info("Geolite Database successfully decrompessed and saved. Ready for use.")
+        logging.info("Geolite Database successfully decrompessed and saved to {}. Ready for use.".format(database_path()))
 
 logging.basicConfig(level=logging.INFO)
 
