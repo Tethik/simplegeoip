@@ -1,4 +1,4 @@
-![codecov](https://codecov.io/gh/Tethik/simplegeoip/branch/master/graph/badge.svg)](https://codecov.io/gh/Tethik/simplegeoip)
+[![Build Status](https://travis-ci.org/Tethik/simplegeoip.svg?branch=master)](https://travis-ci.org/Tethik/simplegeoip)[![codecov](https://codecov.io/gh/Tethik/simplegeoip/branch/master/graph/badge.svg)](https://codecov.io/gh/Tethik/simplegeoip)
 
 # simple-geoip
 Dead simple geoip package. Pretty much just a wrapper around [maxminddb](https://github.com/maxmind/MaxMind-DB-Reader-python/) 
