@@ -18,15 +18,15 @@ def main(args=None):
 
         {binary} info
         """.format(binary=args[0]))
-        exit(0)
+        return
 
     if args[1].strip() == "update":
         download_latest_database_from_maxmind()
-        exit(0)
+        return 
 
     if args[1].strip() == "info":
         print(last_updated())
-        exit(0)
+        return
 
     for arg in args[1:]:
         ip = arg.strip()

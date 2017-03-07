@@ -1,6 +1,7 @@
+import os
 import simplegeoip
 import pytest
-import os
+
 
 def test_lookup():
     d = simplegeoip.lookup("8.8.8.8")
@@ -10,6 +11,7 @@ def test_lookup_no_ip():
     with pytest.raises(Exception):
         d = simplegeoip.lookup("notanip")
     
+@pytest.mark.skip()
 def test_download():
     p = simplegeoip.database_path()
     os.unlink(p)

@@ -1,6 +1,3 @@
-import maxminddb
-import requests
-from appdirs import site_data_dir, user_data_dir
 import os
 import gzip
 import shutil
@@ -8,7 +5,9 @@ import sys
 import logging
 import tempfile
 import time
-
+import maxminddb
+import requests
+from appdirs import site_data_dir, user_data_dir
 
 __title__ = "simplegeoip"
 __author__ = "Tethik"
