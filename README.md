@@ -23,6 +23,8 @@ simplegeoip.lookup('127.0.0.1')
 simplegeoip.download_latest_database_from_maxmind()
 # Tells you when the database was last updated by maxmind
 simplegeoip.last_updated()
+# Returns a maxminddb reader object with the database automatically downloaded.
+simplegeoip.reader()
 ```
 
 The same as above but as a standalone script

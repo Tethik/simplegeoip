@@ -10,37 +10,38 @@ import requests
 from appdirs import site_data_dir, user_data_dir
 
 __title__ = "simplegeoip"
-__author__ = "Tethik"
 
 DATABASE = 'GeoLite2-City.mmdb'
 MAXMIND_GEOLITE_URL = 'https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz'
 
-def database_path():
-    d = site_data_dir(__title__, __author__)
+def _ensure_dir_exists(dir):
     try:
-        if not os.path.exists(d):
-            os.makedirs(d)
+        if not os.path.exists(dir):
+            os.makedirs(dir)
+        return dir
     except:
-        try:
-            d = user_data_dir(__title__, __author__) 
-            if not os.path.exists(d):
-                os.makedirs(d)
-        except:
-            raise EnvironmentError("Could not find a suitable data directory.")
+        return None
+
+def database_path():
+    d = _ensure_dir_exists(site_data_dir(__title__)) or _ensure_dir_exists(user_data_dir(__title__))
+    if not d:
+        raise EnvironmentError("Could not find a suitable data directory.")
     return os.path.join(d, DATABASE)
 
-_reader = None
-def reader():
-    global _reader
-    if _reader is None:        
-        if not os.path.exists(database_path()):
-            logging.info("The Geolite database is not installed. Proceeding to download it.")
-            download_latest_database_from_maxmind()
-        _reader = maxminddb.open_database(database_path())
+
+def reader():              
+    if not os.path.exists(database_path()):
+        logging.info("The Geolite database is not installed. Proceeding to download it.")
+        download_latest_database_from_maxmind()
+    _reader = maxminddb.open_database(database_path())
     return _reader
 
+_reader = None
 def lookup(ip):    
-    return reader().get(ip)
+    global _reader
+    if _reader is None: 
+        _reader = reader()
+    return _reader.get(ip)
 
 def last_updated():
     secs = reader().metadata().build_epoch

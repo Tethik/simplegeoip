@@ -22,3 +22,14 @@ def test_download():
 def test_latest_update():
     assert "Geolite database was last updated" in simplegeoip.last_updated()
 
+def test_reader():
+    # # Not supported yet by maxminddb
+    # with simplegeoip.reader() as reader:
+    #     reader.get('8.8.8.8')
+    #     assert d["country"]["iso_code"] == "US"
+
+    r = simplegeoip.reader()
+    assert r.get('8.8.8.8')["country"]["iso_code"] == "US"
+    r.close()
+    
+
