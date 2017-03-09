@@ -2,7 +2,7 @@ from distutils.command.install_data import install_data
 
 from setuptools import setup, find_packages
 
-VERSION = "0.1.2"
+VERSION = "0.1.3"
 with open("LICENSE") as f:
     LICENSE = f.read()
 with open("README.md") as f:
