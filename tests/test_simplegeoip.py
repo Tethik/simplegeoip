@@ -11,7 +11,7 @@ def test_lookup_no_ip():
     with pytest.raises(Exception):
         d = simplegeoip.lookup("notanip")
     
-@pytest.mark.skip()
+@pytest.mark.skipif("TRAVIS" not in os.environ, reason="Skip so that we don't spam the somewhat heavy download.")
 def test_download():
     p = simplegeoip.database_path()
     os.unlink(p)

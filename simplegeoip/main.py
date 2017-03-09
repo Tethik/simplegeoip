@@ -4,6 +4,7 @@ from simplegeoip import *
 
 def main(args=None):    
     logging.basicConfig(level=logging.INFO)
+    
     if args is None:
         args = sys.argv
     
@@ -30,16 +31,19 @@ def main(args=None):
 
     for arg in args[1:]:
         ip = arg.strip()
-        result = lookup(ip)
-        if 'country' in result:
-            country = result['country']['names']['en']            
-            if 'city' in result:
-                city = result['city']['names']['en']
-                print("{ip}: {country}, {city}".format(ip=ip, country=country, city=city))
+        try:
+            result = lookup(ip)
+            if result and 'country' in result:
+                country = result['country']['names']['en']            
+                if 'city' in result:
+                    city = result['city']['names']['en']
+                    print("{ip}: {country}, {city}".format(ip=ip, country=country, city=city))
+                else:
+                    print("{ip}: {country}".format(ip=ip, country=country))
             else:
-                print("{ip}: {country}".format(ip=ip, country=country))
-        else:
-            print("{ip}: Nothing found.".format(ip=ip))
+                print("{ip}: Nothing found.".format(ip=ip))
+        except ValueError as ex:
+            print(ex)
 
 if __name__ == "__main__":
     main()
