@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 VERSION = "0.1.5"
 with open("LICENSE") as f:
     LICENSE = f.read()
-with open("README.md") as f:
+with open("README.rst") as f:
     README = f.read()
 
 setup(
