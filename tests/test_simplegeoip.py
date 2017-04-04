@@ -40,3 +40,6 @@ def test_reader():
     assert result.get('8.8.8.8')["country"]["iso_code"] == "US"
     result.close()
 
+def test_reader_is_not_singleton():
+    with simplegeoip.reader() as reader:
+        assert reader != simplegeoip.MAXMINDDB_READER
