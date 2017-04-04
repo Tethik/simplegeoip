@@ -13,7 +13,7 @@ simple-geoip
     :target: http://badge.fury.io/py/simplegeoip
     :alt: Latest version
 
-Dead simple geoip package. Pretty much just a wrapper around [maxminddb](https://github.com/maxmind/MaxMind-DB-Reader-python/) 
+Dead simple geoip package. Pretty much just a wrapper around `maxminddb <https://github.com/maxmind/MaxMind-DB-Reader-python/>`_ 
 that automatically downloads the geolite database for you. You can either do this manually using the 'download_latest_database' function 
 or let the script do it automatically when it detects no database is installed.
 
