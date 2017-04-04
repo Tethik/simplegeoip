@@ -21,14 +21,18 @@ Can be used as a package or standalone script.
 
 Install
 -------
+
 .. code-block:: bash
+
     pip install simplegeoip
 
 
 Usage
 -----
 As a python package.
+
 .. code-block:: python
+
     import simplegeoip
 
     # Gets a dict with country/city information 
@@ -39,9 +43,12 @@ As a python package.
     simplegeoip.last_updated()
     # Returns a maxminddb reader object with the database automatically downloaded.
     simplegeoip.reader()
+    
 
 The same as above but as a standalone script
+
 .. code-block:: bash
+
     simplegeoip 8.8.8.8
     simplegeoip update
     simplegeoip info 
