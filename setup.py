@@ -2,7 +2,7 @@ from distutils.command.install_data import install_data
 
 from setuptools import setup, find_packages
 
-VERSION = "0.1.4"
+VERSION = "0.1.5"
 with open("LICENSE") as f:
     LICENSE = f.read()
 with open("README.md") as f:
@@ -20,7 +20,7 @@ setup(
         entry_points = {
             'console_scripts': ['simplegeoip=simplegeoip.main:script_entry'],
         },
-        package_data={'': ['LICENSE', 'README.md']},
+        package_data={'': ['LICENSE', 'README.rst']},
         include_package_data=True,
         install_requires=[
             'maxminddb',
