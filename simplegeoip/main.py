@@ -1,6 +1,7 @@
+from __future__ import print_function
 import logging
 import sys
-from simplegeoip import *
+from simplegeoip import download_latest_database, database_path, last_updated, lookup
 
 def main(args=None):
     logging.basicConfig(level=logging.INFO)
@@ -19,7 +20,7 @@ def main(args=None):
         return
 
     if args[1].strip() == "update":
-        download_latest_database_from_maxmind()
+        download_latest_database()
         return
 
     if args[1].strip() == "info":

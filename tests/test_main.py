@@ -35,10 +35,11 @@ def test_main_lookup_err(capsys):
     assert "does not appear to be an IPv4" in out
 
 @pytest.mark.skipif("TRAVIS" not in os.environ, reason="Skip so that we don't spam the somewhat heavy download.")
-def test_main_update(capsys):
+def test_main_update():
     simplegeoip.main.main(args=["testing", "update"])
 
 def test_main_info(capsys):
     simplegeoip.main.main(args=["testing", "info"])
     out, _ = capsys.readouterr()
     assert "Geolite database was last updated" in out
+    
