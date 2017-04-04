@@ -19,17 +19,23 @@ def test_download():
     simplegeoip.download_latest_database_from_maxmind()
     test_lookup()
 
+def test_database_path_no_dir(monkeypatch):
+    def _mockreturn(path):
+        return None
+    monkeypatch.setattr(simplegeoip, '_ensure_dir_exists', _mockreturn)
+    monkeypatch.setattr(simplegeoip, '_ensure_dir_exists', _mockreturn)
+    with pytest.raises(EnvironmentError):
+        simplegeoip.database_path()
+
 def test_latest_update():
     assert "Geolite database was last updated" in simplegeoip.last_updated()
 
 def test_reader():
-    # # Not supported yet by maxminddb
-    # with simplegeoip.reader() as reader:
-    #     reader.get('8.8.8.8')
-    #     assert d["country"]["iso_code"] == "US"
+    with simplegeoip.reader() as reader:
+        result = reader.get('8.8.8.8')
+        assert result["country"]["iso_code"] == "US"
 
     r = simplegeoip.reader()
     assert r.get('8.8.8.8')["country"]["iso_code"] == "US"
     r.close()
-    
 

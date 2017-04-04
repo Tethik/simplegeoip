@@ -2,13 +2,10 @@ import logging
 import sys
 from simplegeoip import *
 
-def main(args=None):    
+def main(args=None):
     logging.basicConfig(level=logging.INFO)
-    
-    if args is None:
-        args = sys.argv
-    
-    if len(args) < 2:
+
+    if not args or len(args) < 2:
         print("""USAGE: {binary} [update] <ip, ip2, ...>
 
         {binary} update
@@ -23,10 +20,11 @@ def main(args=None):
 
     if args[1].strip() == "update":
         download_latest_database_from_maxmind()
-        return 
+        return
 
     if args[1].strip() == "info":
         print(last_updated())
+        print('The database is located at {}'.format(database_path()))
         return
 
     for arg in args[1:]:
@@ -34,7 +32,7 @@ def main(args=None):
         try:
             result = lookup(ip)
             if result and 'country' in result:
-                country = result['country']['names']['en']            
+                country = result['country']['names']['en']
                 if 'city' in result:
                     city = result['city']['names']['en']
                     print("{ip}: {country}, {city}".format(ip=ip, country=country, city=city))
@@ -45,5 +43,9 @@ def main(args=None):
         except ValueError as ex:
             print(ex)
 
+def script_entry():
+    args = sys.argv
+    main(args)
+
 if __name__ == "__main__":
-    main()
+    script_entry()

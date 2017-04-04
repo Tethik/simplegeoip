@@ -18,7 +18,7 @@ setup(
         url='https://github.com/Tethik/simplegeoip',
         packages=['simplegeoip'],
         entry_points = {
-            'console_scripts': ['simplegeoip=simplegeoip.main:main'],
+            'console_scripts': ['simplegeoip=simplegeoip.main:script_entry'],
         },
         package_data={'': ['LICENSE', 'README.md']},
         include_package_data=True,        
