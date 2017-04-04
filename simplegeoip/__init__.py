@@ -63,5 +63,5 @@ def download_latest_database():
             with open(database_path(), 'wb') as f_out:
                 shutil.copyfileobj(f_in, f_out)
 
-        logging.info("Geolite Database successfully decrompessed and saved to {}. " + \
-                     "Ready for use." % database_path())
+        logging.info("Geolite Database successfully decrompessed and saved to %s. " + \
+                     "Ready for use.", database_path())
