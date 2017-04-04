@@ -30,12 +30,11 @@ def database_path():
     return os.path.join(directory, DATABASE)
 
 def reader():
-    global MAXMINDDB_READER
     if not os.path.exists(database_path()):
         logging.info("The Geolite database is not installed. Proceeding to download it.")
         download_latest_database()
-    MAXMINDDB_READER = maxminddb.open_database(database_path())
-    return MAXMINDDB_READER
+    _reader = maxminddb.open_database(database_path())
+    return _reader
 
 MAXMINDDB_READER = None
 def lookup(ip):
