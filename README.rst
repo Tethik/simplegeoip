@@ -35,13 +35,13 @@ As a python package.
 
     import simplegeoip
 
-    # Gets a dict with country/city information 
+    # Gets a dict with country/city information, if there is no database it will be downloaded automatically 
     simplegeoip.lookup('127.0.0.1')
-    # Downloads an updated database into simplegeoip's package directory
+    # Downloads an updated database into simplegeoip's application directory
     simplegeoip.download_latest_database()
     # Tells you when the database was last updated by maxmind
     simplegeoip.last_updated()
-    # Returns a maxminddb reader object with the database automatically downloaded.
+    # Returns a maxminddb reader object, if there is no database it will be downloaded automatically 
     simplegeoip.reader()
     
 
