@@ -9,9 +9,17 @@ simple-geoip
     :target: https://codecov.io/gh/Tethik/simplegeoip
     :alt: codecov
 
-.. image:: https://badge.fury.io/py/simplegeoip.png
-    :target: http://badge.fury.io/py/simplegeoip
-    :alt: Latest version
+.. image:: https://img.shields.io/pypi/v/nine.svg   
+    :target: https://pypi.python.org/pypi/simplegeoip
+    :alt: Latest version    
+
+.. image:: https://img.shields.io/pypi/pyversions/simplegeoip.svg
+    :target: https://pypi.python.org/pypi/simplegeoip/
+    :alt: Supported python versions
+    
+.. image:: https://img.shields.io/github/license/Tethik/simplegeoip.svg   
+    :target: https://github.com/Tethik/simplegeoip/blob/master/LICENSE
+    
 
 Dead simple geoip package. Pretty much just a wrapper around `maxminddb <https://github.com/maxmind/MaxMind-DB-Reader-python/>`_ 
 that automatically downloads the geolite database for you. You can either do this manually using the 'download_latest_database' function 
