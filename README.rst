@@ -9,7 +9,7 @@ simple-geoip
     :target: https://codecov.io/gh/Tethik/simplegeoip
     :alt: codecov
 
-.. image:: https://img.shields.io/pypi/v/nine.svg   
+.. image:: https://img.shields.io/pypi/v/simplegeoip.svg   
     :target: https://pypi.python.org/pypi/simplegeoip
     :alt: Latest version    
 
