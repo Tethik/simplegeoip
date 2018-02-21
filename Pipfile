@@ -15,7 +15,7 @@ ipaddress = "*"
 
 [dev-packages]
 
-pytest = "==3.*"
+pytest = "*"
 pytest-cov = "*"
 coverage = "*"
 
