@@ -13,6 +13,7 @@ before_install:
 
 # command to install dependencies
 install: 
+  - pip install pipenv
   - pipenv install --dev .
 
 # command to run tests
