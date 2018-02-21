@@ -1,0 +1,24 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+maxminddb = "*"
+requests = "*"
+appdirs = "*"
+
+
+[dev-packages]
+
+pytest = "==3.*"
+pytest-cov = "*"
+coverage = "*"
+
+
+[requires]
+
+python_version = "3.6"
