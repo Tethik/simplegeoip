@@ -10,6 +10,7 @@ name = "pypi"
 maxminddb = "*"
 requests = "*"
 appdirs = "*"
+ipaddress = "*"
 
 
 [dev-packages]
