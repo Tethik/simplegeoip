@@ -17,7 +17,7 @@ def test_main_lookup(capsys):
 def test_main_lookup_city(capsys):
     simplegeoip.main.main(args=["testing", "1.1.1.1"])
     out, _ = capsys.readouterr()
-    assert "Australia, Research" in out
+    assert "Australia" in out
 
 def test_main_lookup_country_only(capsys):
     simplegeoip.main.main(args=["testing", "2001:7fe::53"])
