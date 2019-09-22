@@ -1,25 +1,20 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 maxminddb = "*"
 requests = "*"
 appdirs = "*"
 ipaddress = "*"
 
-
 [dev-packages]
-
 pytest = "*"
 pytest-cov = "*"
 coverage = "*"
-
+autopep8 = "*"
+pylint = "*"
 
 [requires]
-
-python_version = "3.6"
+python_version = "3.7"

@@ -2,7 +2,7 @@ from distutils.command.install_data import install_data
 
 from setuptools import setup, find_packages
 
-VERSION = "0.1.5"
+VERSION = "0.2.0"
 with open("LICENSE") as f:
     LICENSE = f.read()
 with open("README.rst") as f:
@@ -37,12 +37,12 @@ setup(
             'Environment :: Console',
             'Intended Audience :: Developers',
             'Intended Audience :: System Administrators',
-            'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
-            'Programming Language :: Python :: 2.7',
+            'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',            
             'Programming Language :: Python :: 3',            
             'Programming Language :: Python :: 3.4',
             'Programming Language :: Python :: 3.5',
             'Programming Language :: Python :: 3.6',
+            'Programming Language :: Python :: 3.7',
             'Programming Language :: Python',
             'Topic :: Internet :: Proxy Servers',
             'Topic :: Internet',

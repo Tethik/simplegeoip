@@ -1,4 +1,3 @@
-from __future__ import print_function
 import logging
 import sys
 from simplegeoip import download_latest_database, database_path, last_updated, lookup
@@ -9,13 +8,13 @@ def main(args=None):
     if not args or len(args) < 2:
         print("""USAGE: {binary} [update] <ip, ip2, ...>
 
-        {binary} update
-            Downloads a new version of the maxmind geolite database.
+{binary} update
+    Downloads a new version of the maxmind geolite database.
 
-        {binary} <ip, ip2, ....>
-            Performs lookups for each argument given and prints the results.
+{binary} <ip, ip2, ....>
+    Performs lookups for each argument given and prints the results.
 
-        {binary} info
+{binary} info
         """.format(binary=args[0]))
         return
 
